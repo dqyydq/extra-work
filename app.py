@@ -5,11 +5,13 @@ from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 import os
 from LLM import InternLM_LLM
 from langchain.prompts import PromptTemplate
+from openxlab.model import download
+download(model_repo='OpenLMLab/InternLM-7b')
 
 def load_chain():
     # 加载问答链
     # 定义 Embeddings
-    embeddings = HuggingFaceEmbeddings(model_name="/workshop/extra-work/sentence-transformer")
+    embeddings = HuggingFaceEmbeddings(model_name="/workshop/extra-work/OpenLMLab/sentence-transformer")
 
     # 向量数据库持久化路径
     persist_directory = 'data_base/vector_db/chroma'
@@ -20,7 +22,7 @@ def load_chain():
         embedding_function=embeddings
     )
 
-    llm = InternLM_LLM(model_path = "/root/data/model/Shanghai_AI_Laboratory/internlm-chat-7b")
+    llm = InternLM_LLM(model_path = "/workshop/extra-work/OpenLMLab/internlm-chat-7b")
 
     template = """使用以下上下文来回答用户的问题。如果你不知道答案，就说你不知道。总是使用中文回答。
     问题: {question}
