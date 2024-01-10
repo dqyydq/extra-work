@@ -6,6 +6,10 @@ import os
 from LLM import InternLM_LLM
 from langchain.prompts import PromptTemplate
 from openxlab.model import download
+import os
+
+# 下载模型
+os.system('huggingface-cli download --resume-download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --local-dir /workshop/extra-work/OpenLMLab/sentence-transformer')
 download(model_repo='OpenLMLab/InternLM-7b')
 
 def load_chain():
