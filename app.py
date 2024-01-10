@@ -7,6 +7,13 @@ from LLM import InternLM_LLM
 from langchain.prompts import PromptTemplate
 from openxlab.model import download
 import os
+from langchain.document_loaders import UnstructuredFileLoader
+from langchain.document_loaders import UnstructuredMarkdownLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import Chroma
+from langchain.embeddings.huggingface import HuggingFaceEmbeddings
+from tqdm import tqdm
+import os
 
 # 下载模型
 os.system('huggingface-cli download --resume-download sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 --local-dir /workshop/extra-work/OpenLMLab/sentence-transformer')
