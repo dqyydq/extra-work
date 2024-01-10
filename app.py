@@ -54,7 +54,7 @@ def get_text(dir_path):
         docs.extend(loader.load())
     return docs
 
-def creat_Database()
+def creat_Database():
     # 目标文件夹
     tar_dir = [
         "/workshop/extra-work/InternLM",
